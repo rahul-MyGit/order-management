@@ -1,0 +1,1 @@
+// main logic for req, res of get request

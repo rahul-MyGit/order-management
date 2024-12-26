@@ -1,0 +1,1 @@
+{"root":["./src/index.ts","./src/config/index.ts","./src/controller/ordercontroller.ts","./src/lib/prisma.ts","./src/lib/ratelimit.ts","./src/lib/redis.ts","./src/route/orderroute.ts","./src/types/order.ts"],"version":"5.7.2"}
