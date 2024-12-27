@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 import { ApiErrorResponse } from "../lib/response";
 import prisma from "../db/prisma";
 import { verifyInputData } from "../types/orderVerify";
+import { logger } from "..";
 
 //No idea why we need totalNumber, I think it represent the total entry in the DB
 async function getEstimatedCount(): Promise<number> {
@@ -13,7 +14,7 @@ async function getEstimatedCount(): Promise<number> {
     `;
     return Number((result as any)[0]?.estimate) || 0;
   } catch (error) {
-    console.error('Error getting estimated count:', error);
+    logger.info('Error getting estimated count:', error);
     return 0;
   }
 }
@@ -58,7 +59,7 @@ export const getOrders = async (req: Request, res: Response) => {
       hasNextPage
     });
   } catch (error) {
-    console.error('Error in getOrders:', error);
+    logger.info('Error in getOrders:', error);
     ApiErrorResponse(res, 500, "Internal server Error");
   }
 };

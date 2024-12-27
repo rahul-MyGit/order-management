@@ -1,5 +1,6 @@
 import { faker } from '@faker-js/faker';
 import prisma from './prisma';
+import { logger } from '..';
 
 interface OrderItem {
   name: string;
@@ -52,7 +53,7 @@ async function generateOrders(totalCount: number) {
     console.log(`Seeding completed in ${(endTime - startTime) / 1000} seconds`);
 
   } catch (error) {
-    console.error('Error during seeding:', error);
+    logger.info('Error during seeding:', error);
     throw error;
   } finally {
     await prisma.$disconnect();
@@ -61,6 +62,6 @@ async function generateOrders(totalCount: number) {
 
 generateOrders(10000)
   .catch((error) => {
-    console.error(error);
+    logger.info(error);
     process.exit(1);
 });
