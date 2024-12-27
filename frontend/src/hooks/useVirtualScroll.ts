@@ -43,7 +43,7 @@ export const useVirtualScroll = ({
     const { scrollTop, scrollHeight, clientHeight } = parentRef.current;
     const scrollPercentage = (scrollTop + clientHeight) / scrollHeight;
 
-    if (scrollPercentage > 0.8) {
+    if (scrollPercentage > 0.6) {
       onLoadMore();
     }
   }, [hasNextPage, isFetchingNextPage, onLoadMore]);

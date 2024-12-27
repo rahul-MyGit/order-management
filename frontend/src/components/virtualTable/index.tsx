@@ -3,7 +3,7 @@ import { Order, SortConfig } from '../../types/order';
 import { TableRow } from './TableRow';
 import { TableHeader } from './TableHeader';
 import { SkeletonRow } from './SkeletonRow';
-import { TableContainer } from './TableContainer';
+// import { TableContainer } from './TableContainer';
 import { useVirtualScroll } from '../../hooks/useVirtualScroll';
 import { useTableSort } from '../../hooks/useTableSort';
 
@@ -36,7 +36,7 @@ export const VirtualTable = React.memo(function VirtualTable({
   const {
     parentRef,
     virtualizer,
-    isScrolling,
+    // isScrolling,
     handleScroll,
   } = useVirtualScroll({
     itemHeight: ROW_HEIGHT,
@@ -53,7 +53,7 @@ export const VirtualTable = React.memo(function VirtualTable({
     isFetchingNextPage,
   });
 
-  // Memoize column configuration
+  // Memo column configuration
   const columns = useMemo(() => [
     { key: 'customerName' as const, label: 'Customer Name', sortable: true },
     { key: 'orderAmount' as const, label: 'Amount', sortable: true },
@@ -72,7 +72,6 @@ export const VirtualTable = React.memo(function VirtualTable({
     };
   }, [handleScroll]);
 
-  // Show initial loading only on first load
   if (isLoading && !data.length) {
     return (
       <div className="flex justify-center items-center h-64">

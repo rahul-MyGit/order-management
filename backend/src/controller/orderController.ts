@@ -3,6 +3,7 @@ import { ApiErrorResponse } from "../lib/response";
 import prisma from "../db/prisma";
 import { verifyInputData } from "../types/orderVerify";
 
+//No idea why we need totalNumber, I think it represent the total entry in the DB
 async function getEstimatedCount(): Promise<number> {
   try {
     const result = await prisma.$queryRaw`
@@ -44,6 +45,7 @@ export const getOrders = async (req: Request, res: Response) => {
     }
 
     const hasNextPage = items.length > limit;
+    //finding totalCount, but no need require
     const data = hasNextPage ? items.slice(0, limit) : items;
     const nextCursor = hasNextPage ? data[data.length - 1].id : null;
 
