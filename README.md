@@ -118,6 +118,10 @@ Once both the backend and frontend servers are running, you can access the appli
   - `sort`: (optional) The field to sort by (default is `createdAt`).
   - `sortDirection`: (optional) The direction to sort (default is `desc`).
 
+  ```bash
+  EXAMPLE_URL: http://localhost:4000/api/v1/orders?cursor=cm559s2e606adhpisycu46q8i&limit=50&sort=createdAt&sortDirection=desc
+  ```
+
 #### Response
 
 ```bash
@@ -153,7 +157,9 @@ npm run test
 
 2. **Caching with React-Query**: The use of React-Query for data fetching and caching reduces the number of network requests and improves the user experience.
 
-3. **Error Handling**: Proper error handling in API responses ensures that the application can easily handle issues without crashing
+3. **Error Handling**: Proper error handling in API responses ensures that the application can easily handle issues without crashing.
+
+4. **Zod**: For proper types checking of the params.
 
 ## List of Potential Improvements
 
@@ -166,3 +172,5 @@ npm run test
 4. **Testing Coverage**: Tests can be more optimal to cover every edge cases of the application.
 
 5. **Monitoring and Analytics**: Integrate prometheus and grafana for monitoring the server. So that it'll serve at least P90.
+
+6. **Redis**: If the pagination is result is required by other services then we can use redis for cache. Also it would be optimal if there are many requests.
