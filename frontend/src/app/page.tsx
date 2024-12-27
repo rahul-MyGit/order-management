@@ -4,13 +4,18 @@ import React, { useState } from 'react';
 import { QueryClient, QueryClientProvider, InfiniteData } from '@tanstack/react-query';
 import { VirtualTable } from '../components/virtualTable';
 import { useOrders } from '../hooks/useOrders';
-import { Order, OrdersResponse, SortConfig } from '../types/order';
+import { OrdersResponse, SortConfig } from '../types/order';
 
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
       refetchOnWindowFocus: false,
       retry: 3,
+      staleTime: 0,
+      gcTime: 1000 * 60 * 5,
+      refetchOnMount: false,
+      placeholderData: (previousData: unknown) => previousData,
+      retryDelay: (attemptIndex) => Math.min(1000 * 2 ** attemptIndex, 5000),
     },
   },
 });

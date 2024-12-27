@@ -1,58 +1,62 @@
 import { Request, Response } from "express";
 import { ApiErrorResponse } from "../lib/response";
-import { get, setex, exists } from "../lib/redis";
 import prisma from "../db/prisma";
 import { verifyInputData } from "../types/orderVerify";
 
-export const getOrders = async (req: Request, res: Response) => {
-    try {
-        const {cursor, limit, sort, sortDirection} = verifyInputData(req);
-    
-        const cacheKey = `orders:${cursor}:${limit}:${sort}:${sortDirection}`;
-    
-        const cachedData = await get(cacheKey);
-        if (cachedData) {
-          res.json(JSON.parse(cachedData));
-          return;
-        }
-    
-        const query: any = {
-          take: limit + 1,
-          orderBy: { [sort]: sortDirection },
-          ...(cursor && {
-            cursor: {
-              id: cursor
-            },
-            skip: 1
-          })
-        };
-
-        const items = await prisma.order.findMany(query);
-        if(!items) return ApiErrorResponse(res,401,"Items not found");
-    
-        const hasNextPage = items.length > limit;
-        const data = items.slice(0, limit);
-        const nextCursor = hasNextPage ? data[data.length - 1].id : null;
-    
-        const result = {
-          data,
-          nextCursor,
-          totalCount: await get('orders:total-count').then(count => 
-            count ? Number(count) : prisma.order.count()
-          )
-        };
-    
-        await setex(cacheKey, 300, JSON.stringify(result));
-    
-        if (!await exists('orders:total-count')) {
-          const count = await prisma.order.count();
-          await setex('orders:total-count', 3600, String(count)); 
-        }
-    
-        res.json(result);
-        return;
-    
-      } catch (error) {
-        ApiErrorResponse(res, 500, "Internal server Error")
-      }
+async function getEstimatedCount(): Promise<number> {
+  try {
+    const result = await prisma.$queryRaw`
+      SELECT CAST(reltuples AS INTEGER) as estimate
+      FROM pg_class
+      WHERE relname = 'Order';
+    `;
+    return Number((result as any)[0]?.estimate) || 0;
+  } catch (error) {
+    console.error('Error getting estimated count:', error);
+    return 0;
+  }
 }
+
+export const getOrders = async (req: Request, res: Response) => {
+  try {
+    const { cursor, limit, sort, sortDirection } = verifyInputData(req);
+
+    const query = {
+      take: limit + 1,
+      orderBy: { [sort]: sortDirection },
+      ...(cursor && {
+        cursor: { id: cursor },
+        skip: 1
+      }),
+      select: {
+        id: true,
+        customerName: true,
+        orderAmount: true,
+        status: true,
+        createdAt: true,
+      }
+    };
+
+    const items = await prisma.order.findMany(query);
+
+    if (!items || items.length === 0) {
+      return ApiErrorResponse(res, 404, "No items found");
+    }
+
+    const hasNextPage = items.length > limit;
+    const data = hasNextPage ? items.slice(0, limit) : items;
+    const nextCursor = hasNextPage ? data[data.length - 1].id : null;
+
+    const totalCount = !cursor ? await getEstimatedCount() : undefined;
+
+    res.json({
+      data,
+      nextCursor,
+      totalCount,
+      hasNextPage
+    });
+  } catch (error) {
+    console.error('Error in getOrders:', error);
+    ApiErrorResponse(res, 500, "Internal server Error");
+  }
+};
