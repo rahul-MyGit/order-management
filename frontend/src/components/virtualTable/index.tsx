@@ -3,7 +3,6 @@ import { Order, SortConfig } from '../../types/order';
 import { TableRow } from './TableRow';
 import { TableHeader } from './TableHeader';
 import { SkeletonRow } from './SkeletonRow';
-// import { TableContainer } from './TableContainer';
 import { useVirtualScroll } from '../../hooks/useVirtualScroll';
 import { useTableSort } from '../../hooks/useTableSort';
 
@@ -29,10 +28,8 @@ export const VirtualTable = React.memo(function VirtualTable({
   sort,
   onSort,
 }: VirtualTableProps) {
-  // Calculate total items including skeleton rows
   const totalItems = data.length + (isFetchingNextPage && hasNextPage ? SKELETON_COUNT : 0);
 
-  // Setup virtual scrolling
   const {
     parentRef,
     virtualizer,
@@ -47,7 +44,7 @@ export const VirtualTable = React.memo(function VirtualTable({
   });
 
   // Setup sorting
-  const { isPending, handleSort } = useTableSort({
+  const { handleSort } = useTableSort({
     sort,
     onSort,
     isFetchingNextPage,
@@ -82,21 +79,19 @@ export const VirtualTable = React.memo(function VirtualTable({
 
   return (
     <div className="relative border border-gray-200 rounded-lg overflow-hidden">
-      <TableHeader 
+      <TableHeader
         columns={columns}
         sort={sort}
         onSort={handleSort}
       />
-      
-      <div 
+
+      <div
         ref={parentRef}
         className="overflow-auto will-change-transform"
-        style={{ 
+        style={{
           height: 'calc(100vh - 200px)',
           WebkitOverflowScrolling: 'touch',
           transform: 'translateZ(0)',
-          opacity: isPending ? 0.7 : 1,
-          transition: 'opacity 0.15s ease-in-out',
         }}
       >
         <div
@@ -109,7 +104,7 @@ export const VirtualTable = React.memo(function VirtualTable({
         >
           {virtualizer.getVirtualItems().map((virtualRow) => {
             const isSkeletonRow = virtualRow.index >= data.length;
-            
+
             if (isSkeletonRow) {
               return (
                 <SkeletonRow
