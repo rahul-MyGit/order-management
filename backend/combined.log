@@ -22,3 +22,6 @@
 {"level":"info","message":{"ip":"::1","method":"GET","path":"/api/v1/orders","query":{"cursor":"cm559s1hu068chpis8237dc81","limit":"50","sort":"createdAt","sortDirection":"desc"}},"timestamp":"2024-12-27T04:51:45.487Z"}
 {"level":"info","message":{"ip":"::1","method":"GET","path":"/api/v1/orders","query":{"limit":"50","sort":"createdAt","sortDirection":"desc"}},"timestamp":"2024-12-27T04:51:59.129Z"}
 {"level":"info","message":{"ip":"::1","method":"GET","path":"/api/v1/orders","query":{"limit":"50","sort":"createdAt","sortDirection":"desc"}},"timestamp":"2024-12-27T04:52:27.837Z"}
+{"level":"info","message":"Server is running on port: 3000","timestamp":"2024-12-27T10:24:23.804Z"}
+{"level":"info","message":"Server is running on port: 3000","timestamp":"2024-12-27T10:43:39.317Z"}
+{"level":"info","message":{"ip":"::1","method":"GET","path":"/","query":{}},"timestamp":"2024-12-27T10:45:32.700Z"}

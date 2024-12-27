@@ -36,6 +36,25 @@ git clone https://github.com/rahul-MyGit
 cd order-management
 ```
 
+### Frontend Setup
+
+1. Navigate to the frontend directory:
+
+   ```bash
+   cd frontend
+   ```
+
+2. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+3. Start the frontend development server:
+
+   ```bash
+   npm run dev
+   ```
 
 ### Backend Setup
 
@@ -80,26 +99,6 @@ cd order-management
 
    ```bash
    npm run test
-   ```
-
-### Frontend Setup
-
-1. Navigate to the frontend directory:
-
-   ```bash
-   cd frontend
-   ```
-
-2. Install dependencies:
-
-   ```bash
-   npm install
-   ```
-
-3. Start the frontend development server:
-
-   ```bash
-   npm run dev
    ```
 
 ## Usage

@@ -30,7 +30,7 @@ const fetchOrders = async (
   const timeoutId = setTimeout(() => controller.abort(), 5000);
 
   try {
-    const response = await fetch(`${BASE_URL}/orders?${searchParams.toString()}`, {
+    const response = await fetch(`https://api-omara.isujith.dev/api/v1/orders?${searchParams.toString()}`, {
       signal: controller.signal,
       headers: {
         'Accept': 'application/json',
