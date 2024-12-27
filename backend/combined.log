@@ -1,1 +1,24 @@
 {"level":"info","message":"Server is running on port: 4000","timestamp":"2024-12-27T04:03:13.739Z"}
+{"level":"info","message":"Server is running on port: 4000","timestamp":"2024-12-27T04:47:23.127Z"}
+{"level":"info","message":{"ip":"::1","method":"GET","path":"/api/v1/orders","query":{"limit":"50","sort":"createdAt","sortDirection":"desc"}},"timestamp":"2024-12-27T04:48:07.181Z"}
+{"level":"info","message":{"ip":"::1","method":"GET","path":"/api/v1/orders","query":{"limit":"50","sort":"createdAt","sortDirection":"desc"}},"timestamp":"2024-12-27T04:48:29.411Z"}
+{"level":"info","message":{"ip":"::1","method":"GET","path":"/api/v1/orders","query":{"cursor":"cm559rci103sghpisr24u7fup","limit":"50","sort":"createdAt","sortDirection":"desc"}},"timestamp":"2024-12-27T04:50:47.135Z"}
+{"level":"info","message":{"ip":"::1","method":"GET","path":"/api/v1/orders","query":{"cursor":"cm559s5xq06mbhpisnoyx6p9g","limit":"50","sort":"createdAt","sortDirection":"desc"}},"timestamp":"2024-12-27T04:50:52.019Z"}
+{"level":"info","message":{"ip":"::1","method":"GET","path":"/api/v1/orders","query":{"cursor":"cm559q96n001chpisyy2wvdkn","limit":"50","sort":"createdAt","sortDirection":"desc"}},"timestamp":"2024-12-27T04:51:00.069Z"}
+{"level":"info","message":{"ip":"::1","method":"GET","path":"/api/v1/orders","query":{"cursor":"cm559r35k02vohpisr5bu2fsy","limit":"50","sort":"createdAt","sortDirection":"desc"}},"timestamp":"2024-12-27T04:51:02.268Z"}
+{"level":"info","message":{"ip":"::1","method":"GET","path":"/api/v1/orders","query":{"cursor":"cm559r5hj033fhpisu8umro46","limit":"50","sort":"createdAt","sortDirection":"desc"}},"timestamp":"2024-12-27T04:51:24.639Z"}
+{"level":"info","message":{"ip":"::1","method":"GET","path":"/api/v1/orders","query":{"cursor":"cm559r5hj033fhpisu8umro46","limit":"50","sort":"createdAt","sortDirection":"desc"}},"timestamp":"2024-12-27T04:51:27.186Z"}
+{"level":"info","message":{"ip":"::1","method":"GET","path":"/api/v1/orders","query":{"cursor":"cm559r5hj033fhpisu8umro46","limit":"50","sort":"createdAt","sortDirection":"desc"}},"timestamp":"2024-12-27T04:51:27.951Z"}
+{"level":"info","message":{"ip":"::1","method":"GET","path":"/api/v1/orders","query":{"cursor":"cm559s5xq06m0hpiscuymr6l1","limit":"50","sort":"createdAt","sortDirection":"desc"}},"timestamp":"2024-12-27T04:51:29.505Z"}
+{"level":"info","message":{"ip":"::1","method":"GET","path":"/api/v1/orders","query":{"cursor":"cm559s5xq06m0hpiscuymr6l1","limit":"50","sort":"createdAt","sortDirection":"desc"}},"timestamp":"2024-12-27T04:51:30.481Z"}
+{"level":"info","message":{"ip":"::1","method":"GET","path":"/api/v1/orders","query":{"cursor":"cm559qzdd02j5hpiswsem68hb","limit":"50","sort":"createdAt","sortDirection":"desc"}},"timestamp":"2024-12-27T04:51:32.153Z"}
+{"level":"info","message":{"ip":"::1","method":"GET","path":"/api/v1/orders","query":{"cursor":"cm559qchh00c6hpisnfum49zz","limit":"50","sort":"createdAt","sortDirection":"desc"}},"timestamp":"2024-12-27T04:51:33.420Z"}
+{"level":"info","message":{"ip":"::1","method":"GET","path":"/api/v1/orders","query":{"cursor":"cm559rit804glhpisndmmwhbd","limit":"50","sort":"createdAt","sortDirection":"desc"}},"timestamp":"2024-12-27T04:51:34.340Z"}
+{"level":"info","message":{"ip":"::1","method":"GET","path":"/api/v1/orders","query":{"cursor":"cm559r04h02m1hpisb5y7ycy3","limit":"50","sort":"createdAt","sortDirection":"desc"}},"timestamp":"2024-12-27T04:51:35.184Z"}
+{"level":"info","message":{"ip":"::1","method":"GET","path":"/api/v1/orders","query":{"cursor":"cm559qxuu02bthpiszri905m4","limit":"50","sort":"createdAt","sortDirection":"desc"}},"timestamp":"2024-12-27T04:51:38.469Z"}
+{"level":"info","message":{"ip":"::1","method":"GET","path":"/api/v1/orders","query":{"cursor":"cm559s1hr066zhpisllvx22ka","limit":"50","sort":"createdAt","sortDirection":"desc"}},"timestamp":"2024-12-27T04:51:40.623Z"}
+{"level":"info","message":{"ip":"::1","method":"GET","path":"/api/v1/orders","query":{"cursor":"cm559s1hr066zhpisllvx22ka","limit":"50","sort":"createdAt","sortDirection":"desc"}},"timestamp":"2024-12-27T04:51:41.668Z"}
+{"level":"info","message":{"ip":"::1","method":"GET","path":"/api/v1/orders","query":{"cursor":"cm559s1hu068chpis8237dc81","limit":"50","sort":"createdAt","sortDirection":"desc"}},"timestamp":"2024-12-27T04:51:44.076Z"}
+{"level":"info","message":{"ip":"::1","method":"GET","path":"/api/v1/orders","query":{"cursor":"cm559s1hu068chpis8237dc81","limit":"50","sort":"createdAt","sortDirection":"desc"}},"timestamp":"2024-12-27T04:51:45.487Z"}
+{"level":"info","message":{"ip":"::1","method":"GET","path":"/api/v1/orders","query":{"limit":"50","sort":"createdAt","sortDirection":"desc"}},"timestamp":"2024-12-27T04:51:59.129Z"}
+{"level":"info","message":{"ip":"::1","method":"GET","path":"/api/v1/orders","query":{"limit":"50","sort":"createdAt","sortDirection":"desc"}},"timestamp":"2024-12-27T04:52:27.837Z"}
