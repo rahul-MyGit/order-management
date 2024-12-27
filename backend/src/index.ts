@@ -1,8 +1,8 @@
-import express, { Response } from "express";
-import {ENV} from "./config/index"
+import express, { NextFunction, Response, Request } from "express";
+import { ENV } from "./config/index"
 import orderRoute from "./route/orderRoute";
 import cors from "cors"
-import { createLogger, format, transports } from 'winston'; 
+import { createLogger, format, transports } from 'winston';
 
 const app = express();
 
@@ -18,6 +18,16 @@ export const logger = createLogger({
     transports: [
         new transports.File({ filename: 'combined.log' })
     ]
+});
+
+app.use((req: Request, res: Response, next: NextFunction) => {
+    logger.info({
+        method: req.method,
+        path: req.path,
+        query: req.query,
+        ip: req.ip
+    });
+    next();
 });
 
 app.get('/', (_, res: Response) => {
